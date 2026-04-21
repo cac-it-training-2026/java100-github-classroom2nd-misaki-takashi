@@ -83,15 +83,80 @@ public class Explorer {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
+		while (i < 3) {
 
-
-		if (i == 3) {
 			System.out.println("隊長：");
-			System.out.println("川を渡り切りました。");
-		} else {
-			System.out.println("通り抜けに失敗しました...");
+			System.out.println("どの手を出して通り抜けますか");
+			System.out.println("グー… 1 : チョキ… 2 : パー… 3）＞");
+
+			String handString = br.readLine();
+			hand = Integer.parseInt(handString);
+
+			alligator = (int) (Math.random() * 10 % 3) + 1;
+
+			if (hand == 1) {
+
+				if (alligator == 1) {
+					System.out.println("隊長：");
+					System.out.println("相手はグーワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else if (alligator == 2) {
+					System.out.println("隊長：");
+					System.out.println("相手はチョキワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else {
+					System.out.println("隊長：");
+					System.out.println("相手はパーワニでした。");
+					System.out.println("通り抜けに失敗しました...");
+					break;
+				}
+
+			}
+
+			else if (hand == 2) {
+				if (alligator == 1) {
+					System.out.println("隊長：");
+					System.out.println("相手はグーワニでした。");
+					System.out.println("通り抜けに失敗しました...");
+					break;
+				} else if (alligator == 2) {
+					System.out.println("隊長：");
+					System.out.println("相手はチョキワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else {
+					System.out.println("隊長：");
+					System.out.println("相手はパーワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				}
+			}
+
+			else if (hand == 3) {
+				if (alligator == 1) {
+					System.out.println("隊長：");
+					System.out.println("相手はグーワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else if (alligator == 2) {
+					System.out.println("隊長：");
+					System.out.println("相手はチョキワニでした。");
+					System.out.println("通り抜けに失敗しました...");
+					break;
+				} else {
+					System.out.println("隊長：");
+					System.out.println("相手はパーワニでした。");
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				}
+			} else {
+				System.out.println("\n隊長：");
+				System.out.println("そんな手はありませんよ。もう一度入れてください。\n");
+				i--;
+			}
+			i++;
+
+			if (i == 3) {
+				System.out.println("隊長：");
+				System.out.println("川を渡り切りました。");
+			}
 		}
 
 	}
