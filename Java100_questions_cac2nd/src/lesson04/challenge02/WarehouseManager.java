@@ -95,21 +95,26 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String dataype = br.readLine();
+		int datatype = Integer.parseInt(dataype);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String datakindstring = br.readLine();
+		int datakind = Integer.parseInt(datakindstring);
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
+		if (datatype < 1 || datatype > 3) {
+			errFlag = true;
+		}
 
+		if (datakind < 1 || datakind > 3) {
+			errFlag = true;
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +131,59 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
-
+			if (datatype == 1) {
+				if (datakind == 1) {
+					charArray = new char[1];
+					charArray[0] = 'a';
+				}
+				if (datakind == 2) {
+					charArray = new char[2];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+				}
+				if (datakind == 3) {
+					charArray = new char[3];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					charArray[2] = 'c';
+				}
+			}
+			if (datatype == 2) {
+				if (datakind == 1) {
+					strArray = new String[1];
+					strArray[0] = "abc";
+				}
+				if (datakind == 2) {
+					strArray = new String[2];
+					strArray[0] = "abc";
+					strArray[1] = "def";
+				}
+				if (datakind == 3) {
+					strArray = new String[3];
+					strArray[0] = "abc";
+					strArray[1] = "def";
+					strArray[2] = "ghi";
+				}
+			}
+			if (datatype == 3) {
+				if (datakind == 1) {
+					intArray = new int[1];
+					intArray[0] = 1;
+				}
+				if (datakind == 2) {
+					intArray = new int[2];
+					intArray[0] = 1;
+					intArray[1] = 2;
+				}
+				if (datakind == 3) {
+					intArray = new int[3];
+					intArray[0] = 1;
+					intArray[1] = 2;
+					intArray[2] = 3;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +193,14 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			if (datatype == 1) {
+				System.out.print(charArray[charArray.length - 1]);
+			} else if (datatype == 2) {
+				System.out.print(strArray[strArray.length - 1]);
+			} else {
+				System.out.print(intArray[intArray.length - 1]);
+			}
 
 			System.out.println("です。\n");
 
