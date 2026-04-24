@@ -40,18 +40,24 @@ public class WarehouseManager {
 		int[] ABKosanArray = new int[5];
 
 		//ここに重複チェックおよび値の代入処理を記述する
-		int inputNum = 0;
+		int intputNum = 0;
 		boolean loopFlag = false;
 
 		for (int i = 0; i < ABKosanArray.length; i++) {
 			do {
 				loopFlag = false;
-				inputNum = (int) (Math.random() * 10) % 5 + 1;
+				intputNum = (int) (Math.random() * 5) + 1;
 
 				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == intputNum) {
+						loopFlag = true;
+						break;
+					}
 
 				}
 			} while (loopFlag);
+
+			ABKosanArray[i] = intputNum;
 
 		}
 
@@ -70,6 +76,13 @@ public class WarehouseManager {
 		System.out.println("\nです。\n");
 
 		//ここに値の入れ替え処理を記述する
+		int temp = ABKosanArray[0];
+		ABKosanArray[0] = ABKosanArray[4];
+		ABKosanArray[4] = temp;
+
+		int temp2 = ABKosanArray[1];
+		ABKosanArray[1] = ABKosanArray[3];
+		ABKosanArray[3] = temp2;
 
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
